@@ -6,20 +6,60 @@ import { IoIosPlay } from "react-icons/io";
 
 export default function Home() {
   useEffect(() => {
-    const left = document?.getElementById("left");
-    const right = document?.getElementById("right");
+    const leftBtn = document?.getElementById("left");
+    const rightBtn = document?.getElementById("right");
+    const rightSide = document?.getElementById("right_side");
+    const leftSide = document?.getElementById("left_side");
+    const title = document?.getElementById("main_title");
+    const subTitle = document?.getElementById("sub_title");
 
-    left?.addEventListener("mouseenter", () => {
-      console.log("enter");
+    if (title) {
+      title.style.opacity = "1";
+    }
+
+    leftBtn?.addEventListener("mouseenter", () => {
+      if (rightSide) {
+        rightSide.style.opacity = "0";
+        if (title) {
+          title.style.transform = "translateX(40%)";
+        }
+        if (subTitle) {
+          subTitle.style.transform = "translateX(6rem)";
+        }
+      }
     });
-    left?.addEventListener("mouseleave", () => {
-      console.log("leave");
+    leftBtn?.addEventListener("mouseleave", () => {
+      if (rightSide) {
+        rightSide.style.opacity = "1";
+        if (title) {
+          title.style.transform = "translateX(0rem)";
+        }
+        if (subTitle) {
+          subTitle.style.transform = "translateX(0rem)";
+        }
+      }
     });
-    right?.addEventListener("mouseenter", () => {
-      console.log("enter");
+    rightBtn?.addEventListener("mouseenter", () => {
+      if (leftSide) {
+        leftSide.style.opacity = "0";
+        if (title) {
+          title.style.transform = "translateX(-40%)";
+        }
+        if (subTitle) {
+          subTitle.style.transform = "translateX(-6rem)";
+        }
+      }
     });
-    right?.addEventListener("mouseleave", () => {
-      console.log("leave");
+    rightBtn?.addEventListener("mouseleave", () => {
+      if (leftSide) {
+        leftSide.style.opacity = "1";
+        if (title) {
+          title.style.transform = "translateX(0rem)";
+        }
+        if (subTitle) {
+          subTitle.style.transform = "translateX(0rem)";
+        }
+      }
     });
   }, []);
 
@@ -34,8 +74,17 @@ export default function Home() {
             <div className="w-[420px] h-[420px] border border-dotted border-[#A0A4AB] rotate-45 absolute top-1/2 left-1/2 -translate-x-[52%] -translate-y-1/2"></div>
           </div>
           <div className="relative z-10 text-center">
-            <h1 className="text-[60px] text-[#1A1B1C] lg:text-[100px] font-inter font-normal tracking-tighter leading-none">
-              Sophisticated <br /> Skincare
+            <h1
+              id="main_title"
+              className="text-[60px] text-[#1A1B1C] lg:text-[100px] font-inter font-normal tracking-tighter leading-none transition-all duration-900 ease-in-out opacity-0 "
+            >
+              Sophisticated <br />{" "}
+              <div
+                className="transition-all duration-500 ease-in-out"
+                id="sub_title"
+              >
+                Skincare
+              </div>
             </h1>
           </div>
           <p className="z-10 block lg:hidden w-[30ch] mt-4 text-[16px] font-semibold text-center text-muted-foreground text-[#1a1b1c83]">
@@ -60,9 +109,13 @@ export default function Home() {
                 WHAT YOUR SKIN NEEDS.
               </p>
             </div>
-            <div className="hidden lg:block fixed left-[calc(-53vw)] xl:left-[calc(-50vw)] top-1/2 -translate-y-1/2 w-[500px] h-[500px] transition-opacity duration-500 ease-in-out opacity-100">
+            <div
+              id="left_side"
+              className="hidden lg:block fixed left-[calc(-53vw)] xl:left-[calc(-50vw)] top-1/2 -translate-y-1/2 w-[450px] h-[450px] transition-opacity duration-500 ease-in-out opacity-100"
+              style={{ opacity: "1" }}
+            >
               <div className="relative w-full h-full">
-                <div className="w-full h-full border border-dotted border-[#A0A4AB] rotate-45 fixed inset-0"></div>
+                <div className="w-full h-full border-dotted border-2  border-[#A0A4AB] rotate-45 absolute inset-0"></div>
                 <div
                   id="left"
                   className="group inline-flex items-center justify-center gap-4 whitespace-nowrap rounded-md text-sm font-normal text-[#1A1B1C] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring cursor-not-allowed disabled:opacity-50 h-9 absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/5 xl:translate-x-1/6 [@media(width>=1920px)]:translate-x-1/20 px-3 py-1 "
@@ -74,9 +127,12 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="hidden lg:block fixed top-1/2 right-[calc(-53vw)] xl:right-[calc(-50vw)] -translate-y-1/2 w-[500px] h-[500px] transition-opacity duration-500 ease-in-out opacity-100">
+            <div
+              id="right_side"
+              className="hidden lg:block fixed top-1/2 right-[calc(-53vw)] xl:right-[calc(-50vw)] -translate-y-1/2 w-[450px] h-[450px] transition-opacity duration-500 ease-in-out opacity-100"
+            >
               <div className="relative w-full h-full">
-                <div className="w-full h-full border border-dotted border-[#A0A4AB] rotate-45 absolute inset-0"></div>
+                <div className="w-full h-full border-2 border-dotted border-[#A0A4AB] rotate-45 absolute inset-0"></div>
                 <Link
                   id="right"
                   href="/testing"
