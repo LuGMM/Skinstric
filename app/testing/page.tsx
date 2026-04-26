@@ -39,8 +39,11 @@ export default function Testing() {
       setIsProcessing(false);
 
       if (nextButton) {
-        nextButton.style.opacity = "1";
-        nextButton.style.transform = "translateX(0rem)";
+        nextButton.style.display = "flex";
+        setTimeout(() => {
+          nextButton.style.opacity = "1";
+          nextButton.style.transform = "translateX(0rem)";
+        }, 300);
       }
     }, 500);
   };
@@ -81,7 +84,7 @@ export default function Testing() {
               </div>
             ) : (
               <>
-                <p className="text-sm text-gray-400 tracking-wider uppercase mb-1">
+                <p className="text-sm text-gray-400 tracking-wider mb-1">
                   CLICK TO TYPE
                 </p>
                 <form className="relative z-10">
@@ -194,7 +197,11 @@ export default function Testing() {
           id="next_btn"
           href="/result"
           className="group flex items-center gap-6 opacity-1 duration-800 ease-in-out "
-          style={{ opacity: "0", transform: "translateX(-8rem)" }}
+          style={{
+            opacity: "0",
+            transform: "translateX(-8rem)",
+            display: "none",
+          }}
         >
           <span className="text-sm font-semibold sm:block">PROCEED</span>
           <div className="w-[30px] h-[30px] border border-solid border-black rotate-225  group-hover:scale-110 duration-300 relative">
