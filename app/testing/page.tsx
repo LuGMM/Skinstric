@@ -53,12 +53,20 @@ export default function Testing() {
       const nextBtn = document.getElementById("next_btn");
       if (nextBtn) {
         setNextButton(nextBtn);
+        const loadPage = document.getElementById("testing");
+        if (loadPage) {
+          loadPage.style.opacity = "1";
+        }
       }
     }
   }, []);
 
   return (
-    <div className="min-h-[90vh] flex flex-col items-center justify-center bg-white text-center">
+    <div
+      id="testing"
+      className="min-h-[90vh] flex flex-col items-center justify-center bg-white text-center transition-all duration-500 ease-in-out"
+      style={{ opacity: "0" }}
+    >
       <div className="font-semibold text-xs absolute top-16 left-9 text-left">
         TO START ANALYSIS
       </div>

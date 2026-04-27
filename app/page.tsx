@@ -92,7 +92,7 @@ export default function Home() {
             routine tailored to what your skin needs.
           </p>
           <div>
-            <Link className="z-10 mt-4 lg:hidden" href="/">
+            <Link className="z-10 mt-4 lg:hidden" href="/testing">
               <div className="relative flex items-center gap-4 hover:scale-105 duration-300 font-bold text-[12px]">
                 ENTER EXPERIENCE
                 <div className="relative flex items-center justify-center w-[24px] h-[24px] border border-solid border-black rotate-315">

@@ -1,8 +1,13 @@
+"use client";
+
 import leftBracket from "@/public/Rectangle 2710.png";
 import rightBracket from "@/public/Rectangle 2711.png";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const path = usePathname();
+
   return (
     <div className="flex flex-row h-[64px] w-full justify-between py-3 mb-3 relative z-1000">
       <div className="flex flex-row pt-1 scale-75 justify-center items-center">
@@ -21,7 +26,11 @@ export default function Header() {
           alt="left bracket"
         />
         <p className="text-[#1a1b1c83] text-opacity-70  font-semibold text-sm ml-1.5 mr-1.5">
-          INTRO
+          {path === "/" || path === "/result" || path === "/testing" ? (
+            <>INTRO</>
+          ) : (
+            <>ANALYSIS</>
+          )}
         </p>
         <img
           className="opacity-60 w-[5px] h-[17px]"

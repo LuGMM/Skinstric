@@ -24,6 +24,7 @@ export default function Results() {
   const [previewComponent, setPreviewComponent] = useState<HTMLElement | null>(
     null,
   );
+  const [pictureData, setPictureData] = useState();
 
   const fetchApi = async () => {
     setIsFetching(true);
@@ -35,6 +36,10 @@ export default function Results() {
       },
     );
     console.log(data.data);
+    setPictureData(data.data);
+    if (picture) {
+      sessionStorage.setItem("userAnalysis", picture);
+    }
 
     setIsFetching(false);
   };
@@ -72,10 +77,20 @@ export default function Results() {
       setProfilePic(profileImg);
       const previewElement = document.getElementById("preview");
       setPreviewComponent(previewElement);
+
+      const loadPage = document.getElementById("result");
+
+      if (loadPage) {
+        loadPage.style.opacity = "1";
+      }
     }
   }, []);
   return (
-    <div className="min-h-[92vh] flex flex-col bg-white relative md:pt-[64px] justify-center">
+    <div
+      id="result"
+      className="min-h-[92vh] flex flex-col bg-white relative md:pt-[64px] justify-center transition-all duration-800 ease-in-out"
+      style={{ opacity: "0" }}
+    >
       <div
         id="allow_overlay"
         className="absolute w-full min-h-screen z-1000 -top-20 flex items-center justify-center "
