@@ -24,7 +24,7 @@ export default function Results() {
   const [previewComponent, setPreviewComponent] = useState<HTMLElement | null>(
     null,
   );
-  const [pictureData, setPictureData] = useState();
+  const [success, setSuccess] = useState(true);
 
   const fetchApi = async () => {
     setIsFetching(true);
@@ -35,11 +35,12 @@ export default function Results() {
         image: picture,
       },
     );
-    console.log(data.data);
-    setPictureData(data.data);
-    if (picture) {
-      sessionStorage.setItem("userAnalysis", picture);
-    }
+
+    const pictureData = JSON.stringify(data.data);
+
+    sessionStorage.setItem("userAnalysis", pictureData);
+
+    setSuccess(data.success);
 
     setIsFetching(false);
   };
