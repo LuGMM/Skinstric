@@ -53,6 +53,10 @@ export default function Results() {
     }
   };
 
+  async function getCameraPermission() {
+    await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+  }
+
   function hideButtons() {
     if (!leftBtn || !rightBtn) return;
     leftBtn.style.opacity = "0";
@@ -143,10 +147,8 @@ export default function Results() {
                   <>
                     <button
                       onClick={() => {
-                        console.log("Camera");
-
                         hideButtons();
-
+                        getCameraPermission();
                         if (overlay) {
                           overlay.style.display = "none";
                         }

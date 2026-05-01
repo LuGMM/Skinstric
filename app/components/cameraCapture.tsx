@@ -221,18 +221,24 @@ export default function CameraCapture() {
             </div>
           ) : (
             <>
-              <div className="w-[50%] h-[100vh] flex items-center justify-center p-6">
-                <div>
-                  <FiCameraOff />
+              <div className="w-[100%] h-[100vh] flex items-center justify-center p-6 flex-col  ">
+                <div className="w-1/2 flex items-center justify-center">
+                  <FiCameraOff className="w-1/4 h-1/4" />
                 </div>
-                <div>
+                <div className="w-1/2  text-center mb-8 font-semibold text-lg">
                   Looks Like your camera isn't available. <br /> Please change
-                  your settings to allow us to use your webcam.
+                  your settings to allow us access to your camera.
                 </div>
-                <div>
+                <div className="mb-4 text-sm">
                   Or if you'd prefer you can go back and add a photo from your
                   gallery by clicking the button bellow.
                 </div>
+                <Link
+                  href="/result"
+                  className="bg-black text-white p-3 hover:scale-105 transition-all ease-in-out duration-300 font-semibold"
+                >
+                  Go Back
+                </Link>
               </div>
             </>
           )}
