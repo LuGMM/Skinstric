@@ -14,7 +14,7 @@ interface MyData {
 export default function Demographics() {
   let userPhotoData: any = null;
 
-  const [userPhotoDatas, setUserPhotoDatas] = useState();
+  const [userPhotoDatas, setUserPhotoDatas] = useState<any>();
   const [valuesBreakdownTitle, setValuesBreakdownTitle] = useState("RACE");
   const [raceData, setRaceData] = useState<MyData | undefined>();
   const [ageData, setAgeData] = useState<MyData | undefined>();
@@ -24,7 +24,7 @@ export default function Demographics() {
 
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  const [progressBarValue, setProgressBarValue] = useState("");
+  const [progressBarValue, setProgressBarValue] = useState<any>("");
 
   function getBreakdownArray(valueBreakdown: any) {
     const list = Object.keys(valueBreakdown).map((key) => ({
@@ -35,12 +35,12 @@ export default function Demographics() {
     return list;
   }
 
-  function sortValuesBreakdown(array: Array<T>) {
+  function sortValuesBreakdown(array: Array<MyData>) {
     const sortedArray = array.sort((a, b) => b.percentValue - a.percentValue);
     return sortedArray;
   }
 
-  function sortKeysBreakdown(array: Array<T>) {
+  function sortKeysBreakdown(array: Array<MyData>) {
     const sortedArray = array.sort((a, b) => {
       const startA = parseInt(a.key.split("-")[0]);
       const startB = parseInt(b.key.split("-")[0]);
@@ -89,19 +89,18 @@ export default function Demographics() {
 
       setValuesBreakdown(sortValuesBreakdown(getBreakdownArray(photoRace)));
 
-      setProgressBarValue(`${raceMax.percentValue}`);
+      setProgressBarValue(`${raceMax?.percentValue}`);
 
-      setSelectedId(raceMax.key);
+      if (raceMax) {
+        setSelectedId(raceMax.key);
+      }
     }
   }, []);
 
   return (
-    <div
-      id="demographic"
-      className="h-screen md:h-[90vh] flex flex-col md:mt-5"
-    >
-      <div className="flex-1 w-full bg-white md:overflow-hidden overflow-auto">
-        <div className="md:h-full max-w-full mx-5 px-4 md:px-auto flex flex-col relative items-center h-full ">
+    <div id="demographic" className=" h-[90vh] flex flex-col md:mt-5 bottom-0 ">
+      <div className="flex-1 w-full bg-white md:overflow-hidden overflow-auto ">
+        <div className="md:h-full max-w-full mx-5 px-4 md:px-auto flex flex-col relative items-center  ">
           <div className="flex flex-col justify-start w-full">
             <h2 className="text-base md:text-base font-semibold mb-1 leading-[24px]">
               A.I. ANALYSIS
@@ -112,8 +111,8 @@ export default function Demographics() {
             <h3>PREDICTED RACE & AGE</h3>
           </div>
           <div className="w-full flex flex-col  ">
-            <div className="w-full h-full flex gap-4 mt-6 mb-40 md:gap-4 pb-0 md:pb-0 md:mb-0">
-              <div className="bg-white-100 space-y-3 md:flex md:flex-col h-[62%] uppercase w-1/8 transition-all duration-500 ease-in-out">
+            <div className="w-full h-full flex gap-4 mt-6 mb-40 md:gap-4 pb-0 md:pb-0 md:mb-0 max-md:flex-wrap max-md:mb-16">
+              <div className="  bg-white-100 space-y-3 md:flex md:flex-col h-[62%] uppercase w-1/8 transition-all duration-500 ease-in-out max-md:flex max-md:w-full max-md:gap-2 ">
                 <div
                   onClick={() => {
                     setValuesBreakdownTitle("RACE");
@@ -125,11 +124,9 @@ export default function Demographics() {
                           getBreakdownArray(userPhotoDatas.race),
                         ),
                       );
-
-                      console.log(valuesBreakdown);
                     }
                   }}
-                  className={`p-3 cursor-pointer transition-all duration-300 ease-in-out  flex-1 flex flex-col justify-between bg-[#F3F3F4] hover:bg-[#e1e1e2] border-t demographics-titles`}
+                  className={`p-3 cursor-pointer transition-all duration-300 ease-in-out  flex-1 flex flex-col justify-between bg-[#F3F3F4] hover:bg-[#e1e1e2] border-t  max-md:h-full max-sm:h-`}
                   style={{
                     backgroundColor:
                       valuesBreakdownTitle === "RACE" ? "#1A1B1C" : "",
@@ -156,7 +153,7 @@ export default function Demographics() {
                       console.log(valuesBreakdown);
                     }
                   }}
-                  className="p-3 cursor-pointer transition-all duration-300 ease-in-out  bg-[#F3F3F4] flex-1 flex flex-col justify-between hover:bg-[#E1E1E2] border-t"
+                  className="p-3 cursor-pointer transition-all duration-300 ease-in-out  bg-[#F3F3F4] flex-1 flex flex-col justify-between hover:bg-[#E1E1E2] border-t  "
                   style={{
                     backgroundColor:
                       valuesBreakdownTitle === "AGE" ? "#1A1B1C" : "",
@@ -182,7 +179,7 @@ export default function Demographics() {
                       );
                     }
                   }}
-                  className="p-3 cursor-pointer transition-all duration-300 ease-in-out  bg-[#F3F3F4] flex-1 flex flex-col justify-between hover:bg-[#E1E1E2] border-t"
+                  className="p-3 cursor-pointer transition-all duration-300 ease-in-out  bg-[#F3F3F4] flex-1 flex flex-col  hover:bg-[#E1E1E2] border-t h-[100%] gap-auto max-[508px]:h-[108.8px] "
                   style={{
                     backgroundColor:
                       valuesBreakdownTitle === "SEX" ? "#1A1B1C" : "",
@@ -195,7 +192,7 @@ export default function Demographics() {
                   <h4 className="text-base font-semibold mb-1">SEX</h4>
                 </div>
               </div>
-              <div className="relative bg-gray-100 p-4 flex flex-col items-center justify-center md:h-[57vh] md:border-t w-5/8">
+              <div className="relative bg-gray-100 p-4 flex flex-col items-center justify-center md:h-[57vh] border-t w-5/8 max-lg:w-1/2 max-md:h-[57vh]  max-md:ml-6 max-sm:w-full max-sm:ml-0 max-[508px]:h-[25vh]">
                 <p className="hidden md:block md:absolute text-[40px] mb-2 left-7 top-4 first-letter:uppercase">
                   {valuesBreakdownTitle === "RACE" ? (
                     <>{raceData?.key}</>
@@ -203,8 +200,9 @@ export default function Demographics() {
                   {valuesBreakdownTitle === "AGE" ? <>{ageData?.key}</> : null}
                   {valuesBreakdownTitle === "SEX" ? <>{sexData?.key}</> : null}
                 </p>
-                <div className="relative md:absolute w-[40%] max-w-[384px] aspect-square mb-4 md:right-5 md:bottom-2 ">
+                <div className="relative md:absolute w-[40%] max-w-[384px] aspect-square mb-4 md:right-5 md:bottom-2  max-md:w-[100%] max-lg:w-4/5 max-sm:w-75 max-[508px]:h-[75%] ">
                   <CircularProgressbar
+                    className=" max-[508px]:h-[75%]"
                     value={progressBarValue}
                     text={`${progressBarValue}%`}
                     strokeWidth={2}
@@ -217,13 +215,15 @@ export default function Demographics() {
                   />
                 </div>
               </div>
-              <div className="bg-gray-100 md:border-t w-1/4">
+              <div className="bg-gray-100 border-t w-1/4 max-lg:w-1/2 max-md:w-3/8 max-sm:w-full">
                 <div>
-                  <div className="flex justify-between px-4 py-2 font-light items-end">
-                    <h4 className="text-base leading-[24px] tracking-tight font-medium ">
+                  <div className="flex justify-between px-4 py-2 font-light items-end max-lg:text-[12px]">
+                    <h4 className="text-base leading-[24px] tracking-tight font-medium  ">
                       {valuesBreakdownTitle}
                     </h4>
-                    <h4>A.I. CONFIDENCE</h4>
+                    <h4 className="text-base leading-[24px] tracking-tight font-medium  ">
+                      A.I. CONFIDENCE
+                    </h4>
                   </div>
                   {valuesBreakdown?.map((breakdown, index) => (
                     <div
@@ -250,7 +250,7 @@ export default function Demographics() {
                     >
                       <div className="flex items-center gap-1 ">
                         <div className="w-[8px] h-[8px] border rotate-45 mr-2"></div>
-                        <div className=" text-base leading-6 tracking-tight  first-letter:uppercase font-medium">
+                        <div className=" text-base leading-6 tracking-tight  first-letter:uppercase font-medium max-lg:text-sm">
                           {breakdown.key}
                         </div>
                       </div>
@@ -261,25 +261,26 @@ export default function Demographics() {
               </div>
             </div>
             <div className=" pt-4  pb-6 bg-white sticky bottom-0 md:static md:bottom-0 mb-8 md:mb-16 w-full flex justify-between">
-              <Link href="/result" className="group flex items-center gap-6">
+              <Link href="/analysis" className="group flex items-center gap-6">
                 <div className="w-[30px] h-[30px] border border-solid border-black rotate-45  group-hover:scale-110 duration-300 relative">
                   <IoIosPlay className=" scale-100 hover:scale-160 duration-300 rotate-135 absolute bottom-1 left-1" />
                 </div>
                 <span className="text-sm font-semibold sm:block">BACK</span>
               </Link>
 
-              <Link
-                id="next_btn"
-                href="/analysis/demographics"
-                className="group flex items-center gap-6 duration-800 ease-in-out "
-              >
-                <span className="text-sm font-semibold sm:block">
-                  GET SUMMARY
-                </span>
-                <div className="w-[30px] h-[30px] border border-solid border-black rotate-225  group-hover:scale-110 duration-300 relative">
-                  <IoIosPlay className=" scale-100 hover:scale-160 duration-300 rotate-135 absolute bottom-1 left-1" />
-                </div>
-              </Link>
+              <div className=" flex gap-2">
+                <button
+                  onClick={() => {
+                    window.location.reload();
+                  }}
+                  className="cursor-pointer border text-xs font-semibold p-2 hover:bg-[#e1e1e2] transition-all ease-in-out duration-300 "
+                >
+                  RESET
+                </button>
+                <button className="cursor-not-allowed bg-black text-white font-semibold text-xs p-2">
+                  CONFIRM
+                </button>
+              </div>
             </div>
           </div>
         </div>

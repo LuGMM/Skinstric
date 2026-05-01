@@ -64,13 +64,13 @@ export default function Testing() {
   return (
     <div
       id="testing"
-      className="min-h-[90vh] flex flex-col items-center justify-center bg-white text-center transition-all duration-500 ease-in-out"
+      className="min-h-[90vh] flex flex-col items-center justify-center bg-white text-center transition-all duration-500 ease-in-out  max-sm:"
       style={{ opacity: "0" }}
     >
       <div className="font-semibold text-xs absolute top-16 left-9 text-left">
         TO START ANALYSIS
       </div>
-      <div className="relative flex flex-col items-center justify-center mb-40 w-full h-full">
+      <div className="relative flex flex-col items-center justify-center mb-40 w-full h-full ">
         {isProcessing ? (
           <div className="flex flex-col items-center gap-4 z-10">
             <div className="text-lg text-gray-400 tracking-wider uppercase mb-1">
@@ -95,7 +95,7 @@ export default function Testing() {
                 <p className="text-sm text-gray-400 tracking-wider mb-1">
                   CLICK TO TYPE
                 </p>
-                <form className="relative z-10">
+                <form className="relative z-10 flex items-center justify-center max-sm:w-[50vw]">
                   {error ? (
                     <div className="flex flex-col items-center">
                       <p className="text-red-500 text-sm mb-2">{error}</p>
@@ -105,7 +105,7 @@ export default function Testing() {
                   <input
                     id="city_input"
                     pattern="[A-Za-z/s]+"
-                    className="text-5xl sm:text-6xl font-normal text-center bg-transparent border-b border-black focus:outline-none appearance-none w-[372px] sm:w-[432px] pt-1 tracking-[-0.07em] leading-[64px] text-[#1A1B1C] z-10"
+                    className="text-5xl sm:text-6xl font-normal text-center bg-transparent border-b border-black focus:outline-none appearance-none w-[372px] sm:w-[432px] pt-1 tracking-[-0.07em] leading-[64px] text-[#1A1B1C] z-10 max-sm:w-[75vw] max-sm:text-lg max-sm:h-full"
                     style={{ display: "none" }}
                     autoFocus
                     type="text"
@@ -135,7 +135,7 @@ export default function Testing() {
                   <input
                     id="name_input"
                     pattern="[A-Za-z\s]+"
-                    className="text-5xl sm:text-6xl font-normal text-center bg-transparent border-b border-black focus:outline-none appearance-none w-[372px] sm:w-[432px] pt-1 tracking-[-0.07em] leading-[64px] text-[#1A1B1C] z-10"
+                    className="text-5xl sm:text-6xl font-normal text-center bg-transparent border-b border-black focus:outline-none appearance-none w-[372px] sm:w-[432px] pt-1 tracking-[-0.07em] leading-[64px] text-[#1A1B1C] z-10 max-sm:w-[75vw] max-sm:text-lg max-sm:h-full"
                     autoFocus
                     type="text"
                     name="name"
@@ -193,7 +193,7 @@ export default function Testing() {
           className="absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-1/2 w-[320px] h-[320px] md:w-[602px] md:h-[602px] animate-spin [animation-duration:85s] rotate-190"
         />
       </div>{" "}
-      <div className="absolute bottom-38.5 md:bottom-8 w-full flex justify-between md:px-9 px-13">
+      <div className="absolute bottom-38.5 md:bottom-8 w-full flex justify-between md:px-9 px-13  max-sm:bottom-8">
         <Link href="/" className="group flex items-center gap-6">
           <div className="w-[30px] h-[30px] border border-solid border-black rotate-45  group-hover:scale-110 duration-300 relative">
             <IoIosPlay className=" scale-100 hover:scale-160 duration-300 rotate-135 absolute bottom-1 left-1" />

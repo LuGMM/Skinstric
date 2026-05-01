@@ -65,7 +65,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="max-sm:scale-[0.75] max-sm:origin-center max-sm:p-6">
+      <div className=" max-sm:scale-[0.75] max-sm:origin-center max-sm:p-6 origin-center  max-sm:ml-6  max-sm:h-scre">
         <div className="flex flex-col items-center justify-center h-[71dvh] md:fixed md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
           <div className="absolute inset-0 flex items-center justify-center lg:hidden">
             <div className="w-[350px] h-[350px] border border-dotted border-[#A0A4AB] rotate-45 absolute top-1/2 left-1/2 -translate-x-[52%] -translate-y-1/2"></div>
