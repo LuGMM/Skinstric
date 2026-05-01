@@ -317,7 +317,7 @@ export default function Results() {
                   ) : (
                     <button
                       onClick={() => {}}
-                      className="transition-all duration-400 ease-in-out scale-95 cursor-pointer bg-black p-2 rounded text-white font-bold text-[10px]  hover:bg-gray-600 hover:border-gray-600 hover:scale-100"
+                      className="transition-all duration-400 ease-in-out scale-95 cursor-no-drop bg-black p-2 rounded text-white font-bold text-[10px]  hover:bg-gray-600 hover:border-gray-600 hover:scale-100"
                     >
                       ACCEPT PHOTO
                     </button>
