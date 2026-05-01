@@ -87,7 +87,7 @@ export default function CameraCapture() {
     facingMode: "user",
   };
 
-  const webcamRef = React.useRef(null);
+  const webcamRef = React.useRef<Webcam>(null);
   const capture = React.useCallback(() => {
     const imageSrc = webcamRef.current?.getScreenshot();
     setPicture(imageSrc);

@@ -112,7 +112,7 @@ export default function Demographics() {
           </div>
           <div className="w-full flex flex-col  ">
             <div className="w-full h-full flex gap-4 mt-6 mb-40 md:gap-4 pb-0 md:pb-0 md:mb-0 max-md:flex-wrap max-md:mb-16">
-              <div className="  bg-white-100 space-y-3 md:flex md:flex-col h-[62%] uppercase w-1/8 transition-all duration-500 ease-in-out max-md:flex max-md:w-full max-md:gap-2 ">
+              <div className="  bg-white space-y-3 md:flex md:flex-col h-[62%] uppercase w-1/8 transition-all duration-500 ease-in-out max-md:flex max-md:w-full max-md:gap-2 ">
                 <div
                   onClick={() => {
                     setValuesBreakdownTitle("RACE");
@@ -126,7 +126,7 @@ export default function Demographics() {
                       );
                     }
                   }}
-                  className={`p-3 cursor-pointer transition-all duration-300 ease-in-out  flex-1 flex flex-col justify-between bg-[#F3F3F4] hover:bg-[#e1e1e2] border-t  max-md:h-full max-sm:h-`}
+                  className={`p-3 cursor-pointer transition-all duration-300 ease-in-out  flex-1 flex flex-col justify-between bg-[#F3F3F4] hover:bg-[#e1e1e2] border-t  max-md:h-full max-[508px]:h-[132.8px]`}
                   style={{
                     backgroundColor:
                       valuesBreakdownTitle === "RACE" ? "#1A1B1C" : "",
@@ -153,7 +153,7 @@ export default function Demographics() {
                       console.log(valuesBreakdown);
                     }
                   }}
-                  className="p-3 cursor-pointer transition-all duration-300 ease-in-out  bg-[#F3F3F4] flex-1 flex flex-col justify-between hover:bg-[#E1E1E2] border-t  "
+                  className="p-3 cursor-pointer transition-all duration-300 ease-in-out  bg-[#F3F3F4] flex-1 flex flex-col justify-between hover:bg-[#E1E1E2] border-t  max-[508px]:h-[132.8px]"
                   style={{
                     backgroundColor:
                       valuesBreakdownTitle === "AGE" ? "#1A1B1C" : "",
@@ -179,7 +179,7 @@ export default function Demographics() {
                       );
                     }
                   }}
-                  className="p-3 cursor-pointer transition-all duration-300 ease-in-out  bg-[#F3F3F4] flex-1 flex flex-col  hover:bg-[#E1E1E2] border-t h-[100%] gap-auto max-[508px]:h-[108.8px] "
+                  className="p-3 cursor-pointer transition-all duration-300 ease-in-out  bg-[#F3F3F4] flex-1 flex flex-col  hover:bg-[#E1E1E2] border-t h-[100%] gap-auto max-[508px]:h-[132.8px] "
                   style={{
                     backgroundColor:
                       valuesBreakdownTitle === "SEX" ? "#1A1B1C" : "",

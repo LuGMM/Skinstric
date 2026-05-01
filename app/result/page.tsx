@@ -150,7 +150,7 @@ export default function Results() {
                         if (overlay) {
                           overlay.style.display = "none";
                         }
-                        router.push("/camera/capture");
+                        router.push("/camera");
                       }}
                       className="p-2 hover:text-gray-500 cursor-pointer transition-all"
                     >

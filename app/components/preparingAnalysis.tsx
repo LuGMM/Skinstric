@@ -1,6 +1,6 @@
 import Loader from "./loader";
 
-export default function PreparingAnalysis({ preparingTitle }) {
+export default function PreparingAnalysis({ preparingTitle }: any) {
   return (
     <div className="absolute w-screen h-screen">
       <div className="w-full h-full flex items-center justify-center relative">
